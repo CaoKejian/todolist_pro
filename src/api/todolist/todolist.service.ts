@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { todolistType } from 'src/interface/todolist.interface';
-import { TodoList } from 'src/schema/todolist.schema';
+import { TodoList } from 'src/schemas/todolist.schema';
 import { TodolistModule } from './todolist.module';
 
 @Injectable()
