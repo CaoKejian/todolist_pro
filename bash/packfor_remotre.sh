@@ -18,7 +18,7 @@ function title {
 }
 
 title "clear tar*"
-rm -rf $dist $bash_dist $db_dist $port_rspec $modules_dist
+sudo rm -rf $dist $bash_dist $db_dist $port_rspec $modules_dist
 
 title "打包源代码"
 tar --exclude="node_modules/*" --exclude="bash/*" -czf $dist *
@@ -35,7 +35,7 @@ mongodump --host localhost --port 27017 -o $home_dir -d todolist
 tar -czf $db_dist -C ../todolist .
 
 title "创建远程目录"
-ssh $user@$host "rm -rf $deploy_dir/ && 
+ssh $user@$host "sudo rm -rf $deploy_dir/ && 
    mkdir -p $deploy_dir && 
    mkdir -p $deploy_dir/db && 
    mkdir -p $deploy_dir/node_modules"
@@ -56,7 +56,7 @@ title "解压源代码"
 ssh $user@$host "cd $deploy_dir && 
    tar -xzf todolist_pro.tar.gz && 
    tar -xzf todolist_bash.tar.gz &&  
-   tar -xzf node_modules.tar.gz -C ./node_modules "
+   tar -xzf todolist_node_modules.tar.gz -C ./node_modules "
 
 title "解压数据表"
 ssh $user@$host "cd $deploy_dir/db &&  tar -xzf todolist.tar.gz"
