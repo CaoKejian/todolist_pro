@@ -1,10 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
-export type AppDocument = HydratedDocument<App>;
+export type TodoListDocument = HydratedDocument<TodoList>;
 // schema 为数据库上传校验器
 @Schema()
-export class App {
+export class TodoList {
   @Prop({
     required: true,
     enum: ['1', '2'],
@@ -16,4 +16,4 @@ export class App {
   input: string;
 }
 
-export const AppSchema = SchemaFactory.createForClass(App);
+export const TodoListSchema = SchemaFactory.createForClass(TodoList);

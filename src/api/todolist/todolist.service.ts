@@ -1,14 +1,19 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { appType } from 'src/interface/app.interface';
-import { App } from 'src/schema/app.schema';
-import { AppModule } from './todolist.module';
+import { todolistType } from 'src/interface/todolist.interface';
+import { TodoList } from 'src/schema/todolist.schema';
+import { TodolistModule } from './todolist.module';
 
 @Injectable()
-export class UserService {
-  constructor(@InjectModel(App.name) private appModel: Model<AppModule>) {}
-  getTodoList(): Promise<appType[]> {
-    return this.appModel.find();
+export class TodolistService {
+  constructor(
+    @InjectModel(TodoList.name) private todolistModel: Model<TodolistModule>,
+  ) {}
+  getTodoList(): Promise<todolistType[]> {
+    return this.todolistModel.find();
+  }
+  insertTodoList(data: todolistType) {
+    return this.todolistModel.create(data);
   }
 }

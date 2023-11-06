@@ -1,4 +1,4 @@
-export interface appType {
+export interface todolistType {
   select: string;
   input: string;
 }

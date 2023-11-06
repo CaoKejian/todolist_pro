@@ -1,17 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { UserController } from './todolist.controller';
-import { UserService } from './todolist.service';
+import { TodolistController } from './todolist.controller';
+import { TodolistService } from './todolist.service';
 
 describe('AppController', () => {
-  let appController: UserController;
+  let appController: TodolistController;
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
-      controllers: [UserController],
-      providers: [UserService],
+      controllers: [TodolistController],
+      providers: [TodolistService],
     }).compile();
 
-    appController = app.get<UserController>(UserController);
+    appController = app.get<TodolistController>(TodolistController);
   });
 
   describe('root', () => {
