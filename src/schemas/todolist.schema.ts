@@ -14,6 +14,9 @@ export class TodoList {
 
   @Prop({ required: true })
   input: string;
+
+  @Prop({ required: true })
+  update: string;
 }
 
 export const TodoListSchema = SchemaFactory.createForClass(TodoList);

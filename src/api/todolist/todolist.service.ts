@@ -14,6 +14,16 @@ export class TodolistService {
     return this.todolistModel.find();
   }
   insertTodoList(data: todolistType) {
-    return this.todolistModel.create(data);
+    const now = new Date();
+    const formattedDate = `${now.getFullYear()}/${
+      now.getMonth() + 1
+    }/${now.getDate()} ${now.getHours()}:${now.getMinutes()}`;
+
+    const newData = {
+      ...data,
+      update: formattedDate,
+    };
+
+    return this.todolistModel.create(newData);
   }
 }
