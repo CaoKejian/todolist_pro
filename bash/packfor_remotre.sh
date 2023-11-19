@@ -18,7 +18,7 @@ function title {
 }
 
 title "clear tar*"
-sudo rm -rf $dist $bash_dist $db_dist $port_rspec $modules_dist
+rm -rf $dist $bash_dist $db_dist $port_rspec $modules_dist
 
 title "打包源代码"
 tar --exclude="node_modules/*" --exclude="bash/*" -czf $dist *

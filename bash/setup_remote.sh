@@ -45,9 +45,9 @@ echo "服务端开始执行脚本>>>..."
 # export NODE_ENV=production
 # export PORT=80
 title "启动服务"
-# sudo npm run start:dev
+sudo npm run start:dev
 # sudo killall node
-sudo pm2 start "npm" --name 'todolist' -- run start:dev --watch
+# sudo pm2 start "npm" --name 'todolist' -- run start:dev --watch
 title "全部执行完毕！"
 echo -e "\e[1;34m⭐️请访问后端地址->:"http://124.70.188.74:3001/"\e[0m"
 echo -e "\e[1;34m⭐️请访问接口文档->:"http://124.70.188.74:3001/docs/"\e[0m"

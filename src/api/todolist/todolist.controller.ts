@@ -1,7 +1,7 @@
 import { Body, Controller, Get, HttpCode, Post } from '@nestjs/common';
 import { TodolistService } from './todolist.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { todolistType } from 'src/interface/todolist.interface';
+import { deleteType, todolistType } from 'src/interface/todolist.interface';
 import { CreateTodoListDto } from 'src/validate/todolist.dto';
 
 @ApiTags('todolist接口')
@@ -24,5 +24,13 @@ export class TodolistController {
   @ApiOperation({ summary: '新增todolist' })
   async insertTodoList(@Body() data: CreateTodoListDto) {
     return this.todolistService.insertTodoList(data);
+  }
+
+  @Post('/delete')
+  @HttpCode(200)
+  @ApiResponse({ status: 200, description: '删除一项或多项todolist' })
+  @ApiOperation({ summary: '删除一项或多项todolist' })
+  async deleteTodoList(@Body() data: deleteType[]) {
+    return this.todolistService.deleteTodoList(data);
   }
 }

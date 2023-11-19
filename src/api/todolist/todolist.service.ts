@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { todolistType } from 'src/interface/todolist.interface';
+import { deleteType, todolistType } from 'src/interface/todolist.interface';
 import { TodoList } from 'src/schemas/todolist.schema';
 import { TodolistModule } from './todolist.module';
 
@@ -22,8 +22,16 @@ export class TodolistService {
     const newData = {
       ...data,
       update: formattedDate,
+      checked: false,
     };
 
     return this.todolistModel.create(newData);
+  }
+  deleteTodoList(id: deleteType[]) {
+    if (Array.isArray(id) && id.length > 0) {
+      return this.todolistModel.deleteMany({ _id: { $in: id } });
+    } else {
+      throw new Error('Invalid or empty ID array provided.');
+    }
   }
 }
