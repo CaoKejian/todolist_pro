@@ -3,7 +3,6 @@ import { TodolistService } from './todolist.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { deleteType, todolistType } from 'src/interface/todolist.interface';
 import { CreateTodoListDto } from 'src/validate/todolist.dto';
-
 @ApiTags('todolist接口')
 @Controller('api/todolist')
 @Controller()

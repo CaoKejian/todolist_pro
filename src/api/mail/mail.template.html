@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Template</title>
+    <style>
+      ul, li{
+        list-style: none;
+      }
+      ul{
+        width: 100%;
+        background: rgb(30, 32, 34);
+        border-radius: 0.5rem;
+        color: rgb(124, 128, 6);
+        box-sizing: border-box;
+      }
+      li span{
+        color: rgb(117, 127, 177);
+      }
+    </style>
+</head>
+<body>
+  <h1><%= subject %></h1>
+  <ul>
+    <% for (let i = 0; i < body.length; i++) { %>
+        <li>取件码：<span><%= body[i].code %></span> &nbsp;&nbsp;&nbsp;&nbsp;地址：<span><%= body[i].address %>~</span></li>
+    <% } %>
+  </ul>
+  <p>辛苦啦，老公！</p>
+</body>
+</html>

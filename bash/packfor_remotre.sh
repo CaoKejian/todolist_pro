@@ -1,10 +1,10 @@
 #!/bin/bash
 
 user=todolist
-host=124.70.188.74
+host=``124.70.188.74``
 deploy_dir=todolist
 file_name=TodoList
-home_dir=/Users/duibagroup/Desktop/myself
+home_dir=/Users/didi/myself
 dist=$home_dir/todolist_pro.tar.gz
 db_dist=$home_dir/todolist.tar.gz
 bash_dist=$home_dir/todolist_bash.tar.gz
@@ -26,8 +26,8 @@ tar -czf $bash_dist -C ./bash .
 
 title "正在打包node_modules<<<请稍后..."
 modules_total_size=$(du -sk ./node_modules | cut -f 1)
-tar -cf - -C ./node_modules . | pv -s ${modules_total_size}k | gzip > $modules_dist
-# tar --exclude="portDocument/*" -czf $modules_dist -C ./node_modules .
+# tar -cf - -C ./node_modules . | pv -s ${modules_total_size}k | gzip > $modules_dist
+tar --exclude="portDocument/*" -czf $modules_dist -C ./node_modules .
 
 
 title "导出数据库并打包"
